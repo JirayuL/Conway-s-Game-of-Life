@@ -4,8 +4,8 @@ public class Board {
 	private int height;
 	private int width;
 	private int size;
-	
-	public Board(int height, int width) {
+
+	public Board(int width, int height) {
 		this.height = height;
 		this.width = width;
 		this.size = height * width;
@@ -25,6 +25,10 @@ public class Board {
 		return width;
 	}
 
+	public void setSquare(int width, int height) {
+		squares[width][height].setAlive();
+	}
+
 	private void intiBoard() {
 		for (int i = 0; i < squares.length; i++) {
 			for (int j = 0; j < squares.length; j++) {
@@ -32,5 +36,5 @@ public class Board {
 			}
 		}
 	}
-	
+
 }

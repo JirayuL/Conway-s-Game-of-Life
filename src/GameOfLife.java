@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class GameOfLife {
 	private Board board;
@@ -11,16 +10,17 @@ public class GameOfLife {
 		return board;
 	}
 
-//	public List<Square> getSquares() {
-//		return board.getSquares();
-//	}
-//
-//	public Square getSquaresAt(int index) {
-//		return board.getSquares().get(index);
-//	}
+	// public List<Square> getSquares() {
+	// return board.getSquares();
+	// }
+	//
+	public Square getSquaresAt(int width, int height) {
+		Square[][] s = board.getSquares();
+		return s[width][height];
+	}
 
-	public void setSquare(int index) {
-//		board.setSquare(index);
+	public void setSquare(int width, int height) {
+		board.setSquare(width, height);
 	}
 
 	public void printTable() {
@@ -34,6 +34,15 @@ public class GameOfLife {
 	}
 
 	public void nextInteration() {
+		for (int i = 0; i < board.getHeight(); i++) {
+			for (int j = 0; j < board.getWidth(); j++) {
+				Square s = this.getSquaresAt(j, i);
+				if (s.isAlive() && (s.getNeighbor() < 2 || s.getNeighbor() > 3))
+					s.setAlive();
+				if (s.isAlive() == false && s.getNeighbor() == 3)
+					s.setAlive();
+			}
+		}
 		// System.out.println(this.board.countNeighbor(11));
 		// System.out.println(this.board.countNeighbor(12));
 		// System.out.println(this.board.countNeighbor(13));
