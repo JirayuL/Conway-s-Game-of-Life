@@ -13,6 +13,10 @@ public class Board {
 		intiBoard();
 	}
 
+	public int getSize() {
+		return size;
+	}
+	
 	public Square[][] getSquares() {
 		return squares;
 	}
@@ -25,8 +29,8 @@ public class Board {
 		return width;
 	}
 
-	public void setSquare(int width, int height) {
-		squares[width][height].setAlive();
+	public void setSquare(int width, int height, boolean alive) {
+		squares[width][height].setAlive(alive);
 	}
 
 	private void intiBoard() {
