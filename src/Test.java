@@ -19,30 +19,26 @@ public class Test {
 
 	@org.junit.Test
 	public void pressAtPositionTen() {
-		Board b = new Board(10, 10);
-		// b.setSquare(10);
-		// game.getBoard().setSquare(10);
-		assertEquals(game.getBoard().toString(), b.toString());
+		game.setSquare(9, 9);
+		assertEquals(game.getSquaresAt(9, 9).isAlive(), true);
 	}
 
 	@org.junit.Test
 	public void pressAtManyPosition() {
-		Board b = new Board(10, 10);
-		// b.setSquare(10);
-		// b.setSquare(99);
-		// b.setSquare(50);
-		// b.setSquare(20);
-		// game.setSquare(10);
-		// game.setSquare(99);
-		// game.setSquare(50);
-		// game.setSquare(20);
-		assertEquals(game.getBoard().toString(), b.toString());
+		game.setSquare(0, 0);
+		game.setSquare(5, 5);
+		game.setSquare(9, 9);
+		game.setSquare(2, 2);
+		assertEquals(game.getSquaresAt(0, 0).isAlive(), true);
+		assertEquals(game.getSquaresAt(5, 5).isAlive(), true);
+		assertEquals(game.getSquaresAt(9, 9).isAlive(), true);
+		assertEquals(game.getSquaresAt(2, 2).isAlive(), true);
 	}
 
 	@org.junit.Test
 	public void testOneNeighbourDied() {
 		game.setSquare(0, 1);
-		game.nextInteration();
+		 game.nextInteration();
 		assertEquals(game.getSquaresAt(0, 1).isAlive(), false);
 	}
 
@@ -65,7 +61,7 @@ public class Test {
 		game.nextInteration();
 		assertEquals(game.getSquaresAt(1, 1).isAlive(), false);
 	}
-	
+
 	@org.junit.Test
 	public void testThreeNeighboursBorn() {
 		game.setSquare(2, 1);
