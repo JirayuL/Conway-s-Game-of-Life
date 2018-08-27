@@ -10,17 +10,13 @@ public class GameOfLife {
 		return board;
 	}
 
-	// public List<Square> getSquares() {
-	// return board.getSquares();
-	// }
-	//
 	public Square getSquaresAt(int width, int height) {
 		Square[][] s = board.getSquares();
 		return s[width][height];
 	}
 
 	public void setSquare(int width, int height) {
-		if (this.getSquaresAt(width, height).isAlive()) {			
+		if (this.getSquaresAt(width, height).isAlive()) {
 			board.setSquare(width, height, false);
 		} else {
 			board.setSquare(width, height, true);
@@ -201,18 +197,6 @@ public class GameOfLife {
 					s.setAlive(true);
 			}
 		}
-		// System.out.println(this.board.countNeighbor(11));
-		// System.out.println(this.board.countNeighbor(12));
-		// System.out.println(this.board.countNeighbor(13));
-		// for (int i = 0; i < board.getSize(); i++) {
-		// System.out.println(this.board.countNeighbor(i));
-		// if (this.getSquares().get(i).isAlive() && (this.board.countNeighbor(i) < 2 ||
-		// this.board.countNeighbor(i) > 3)) {
-		// this.getSquares().get(i).setAlive(false);
-		// System.out.println(this.getSquares().get(i).getNeighbor());
-		//// System.out.println("inif");
-		// }
-		// }
 	}
 
 }
