@@ -26,7 +26,12 @@ public class GameOfLife {
 	public void printBoard() {
 		for (int i = 0; i < board.getHeight(); i++) {
 			for (int j = 0; j < board.getWidth(); j++) {
-				System.out.print(board.getSquares()[i][j].getNeighbor() + " ");
+//				System.out.print(board.getSquares()[i][j].getNeighbor() + " ");
+				if (board.getSquares()[i][j].isAlive()) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
 			}
 			System.out.println();
 		}
@@ -188,9 +193,9 @@ public class GameOfLife {
 
 	public void nextInteration() {
 		countNeighbor();
-		for (int i = 0; i < board.getHeight(); i++) {
-			for (int j = 0; j < board.getWidth(); j++) {
-				Square s = this.getSquaresAt(j, i);
+		for (int i = 0; i < board.getWidth(); i++) {
+			for (int j = 0; j < board.getHeight(); j++) {
+				Square s = this.getSquaresAt(i, j);
 				if (s.isAlive() && (s.getNeighbor() < 2 || s.getNeighbor() > 3))
 					s.setAlive(false);
 				if (s.isAlive() == false && s.getNeighbor() == 3)
