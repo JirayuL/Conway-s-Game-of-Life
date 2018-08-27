@@ -20,8 +20,8 @@ public class Square {
 		return alive;
 	}
 
-	public void setAlive() {
-		this.alive = !this.alive;
+	public void setAlive(boolean alive) {
+		this.alive = alive;
 	}
 
 }
