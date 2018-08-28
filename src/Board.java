@@ -9,14 +9,14 @@ public class Board {
 		this.height = height;
 		this.width = width;
 		this.size = height * width;
-		squares = new Square[height][width];
+		squares = new Square[width][height];
 		intiBoard();
 	}
 
 	public int getSize() {
 		return size;
 	}
-	
+
 	public Square[][] getSquares() {
 		return squares;
 	}
@@ -34,8 +34,8 @@ public class Board {
 	}
 
 	private void intiBoard() {
-		for (int i = 0; i < squares.length; i++) {
-			for (int j = 0; j < squares.length; j++) {
+		for (int i = 0; i < this.getWidth(); i++) {
+			for (int j = 0; j < this.getHeight(); j++) {
 				squares[i][j] = new Square();
 			}
 		}
